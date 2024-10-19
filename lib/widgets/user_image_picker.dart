@@ -16,6 +16,10 @@ class _UserImagePickerState extends State<UserImagePicker> {
   File? _pickedImageFile;
 
   void _pickImage() async {
+
+    /// iOS Simulator does not have camera capabilities,
+    /// so this code displays a snackbar message.
+    /// For release to appstore (if that ever happens), this code must be removed.
     if (Platform.isIOS) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
